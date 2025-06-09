@@ -30,6 +30,7 @@ export default function EntrepriseRequestsTable() {
 
   const [actionLoading, setActionLoading] = useState({}); // { [id]: true/false }
   const [actionError, setActionError] = useState({}); // { [id]: errorMsg }
+  const [commentSaved, setCommentSaved] = useState({}); // { [id]: true/false }
 
   const handleCommentChange = (id, value) => {
     setRows((prev) => prev.map((r) => r.id === id ? { ...r, commentaire: value } : r));
@@ -41,13 +42,16 @@ export default function EntrepriseRequestsTable() {
     const row = rows.find(r => r.id === id);
     try {
       await saveEntrepriseComment(id, row.commentaire);
-      // Clear the comment field after successful save
-      setRows(prev => prev.map(r => r.id === id ? { ...r, commentaire: "" } : r));
+      setCommentSaved(cs => ({ ...cs, [id]: true }));
       setActionLoading(al => ({ ...al, [id]: false }));
     } catch (e) {
       setActionError(ae => ({ ...ae, [id]: e.message }));
       setActionLoading(al => ({ ...al, [id]: false }));
     }
+  };
+
+  const handleEdit = (id) => {
+    setCommentSaved(cs => ({ ...cs, [id]: false }));
   };
 
   const handleStatus = async (id, status) => {
@@ -66,6 +70,7 @@ export default function EntrepriseRequestsTable() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.blueHeader}>Demandes reçues</div>
+      <div style={{ overflowX: 'auto', width: '100%' }}>
       {loading ? (
         <div style={{ padding: "2rem", textAlign: "center" }}>Chargement...</div>
       ) : error ? (
@@ -89,29 +94,47 @@ export default function EntrepriseRequestsTable() {
                 <td>{row.stage}</td>
                 <td>{row.dateDebut}</td>
                 <td>
-                  <button className={styles.proBtn} disabled>{row.statut}</button>
+                  <button 
+                    className={`${styles.proBtn} ${row.statut === "en attente" ? styles.enAttente : 
+                    row.statut === "acceptée" ? styles.acceptee : 
+                    row.statut === "refusée" ? styles.refusee : ""}`} 
+                    disabled
+                  >
+                    {row.statut}
+                  </button>
                 </td>
                 <td>
-                  <textarea
-                    className={styles.textarea}
-                    value={row.commentaire}
-                    onChange={e => handleCommentChange(row.id, e.target.value)}
-                    placeholder="Ajouter un commentaire..."
-                    rows={2}
-                    disabled={row.statut === "acceptée"}
-                  />
-                  <div>
-                    <button
-                      className={styles.saveBtn}
-                      onClick={() => handleSave(row.id)}
-                      disabled={actionLoading[row.id] || row.statut === "acceptée"}
-                    >
-                      {actionLoading[row.id] ? "..." : "Sauvegarder"}
-                    </button>
-                    {actionError[row.id] && (
-                      <div style={{ color: "#e53935", fontSize: "0.95em" }}>{actionError[row.id]}</div>
-                    )}
-                  </div>
+                  {commentSaved[row.id] ? (
+                    <div className={styles.commentContainer}>
+                      <div style={{whiteSpace:'pre-wrap', color:'#222', fontSize:'1rem', minHeight: '36px', padding:'0.2rem 0.5rem', wordBreak: 'break-word'}}>
+                        {row.commentaire ? row.commentaire : <span style={{color:'#bbb'}}>Aucun commentaire</span>}
+                      </div>
+                      <button className={styles.saveBtn} onClick={() => handleEdit(row.id)} style={{marginTop:'0.3rem'}}>Modifier</button>
+                    </div>
+                  ) : (
+                    <div className={styles.commentContainer}>
+                      <textarea
+                        className={styles.textarea}
+                        value={row.commentaire}
+                        onChange={e => handleCommentChange(row.id, e.target.value)}
+                        placeholder="Ajouter un commentaire..."
+                        rows={2}
+                        disabled={row.statut === "acceptée"}
+                      />
+                      <div>
+                        <button
+                          className={styles.saveBtn}
+                          onClick={() => handleSave(row.id)}
+                          disabled={actionLoading[row.id] || row.statut === "acceptée"}
+                        >
+                          {actionLoading[row.id] ? "..." : "Sauvegarder"}
+                        </button>
+                        {actionError[row.id] && (
+                          <div style={{ color: "#e53935", fontSize: "0.95em" }}>{actionError[row.id]}</div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </td>
                 <td>
                   {row.statut === "acceptée" ? (
@@ -143,6 +166,7 @@ export default function EntrepriseRequestsTable() {
           </tbody>
         </table>
       )}
+      </div>
     </div>
   );
 }

@@ -29,20 +29,25 @@ const StageRequestsList = () => {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Titre</th>
               <th>Entreprise</th>
+              <th>Stage</th>
+              <th>Date de début</th>
+              <th>Date de fin</th>
               <th>Durée</th>
               <th>Statut</th>
+              <th>Commentaire entreprise</th>
             </tr>
           </thead>
           <tbody>
             {candidatures.length === 0 ? (
-              <tr><td colSpan={4} style={{textAlign:'center', color:'#64748b'}}>Aucune demande</td></tr>
+              <tr><td colSpan={7} style={{textAlign:'center', color:'#64748b'}}>Aucune demande</td></tr>
             ) : (
               candidatures.map(req => (
                 <tr key={req.id}>
-                  <td>{req.stage?.titre || "-"}</td>
-                  <td>{req.stage?.entreprise?.nom || "-"}</td>
+                  <td>{req.stage?.entreprise?.nom || '-'}</td>
+                  <td>{req.stage?.titre || '-'}</td>
+                  <td>{req.stage?.dateDebut ? new Date(req.stage.dateDebut).toLocaleDateString() : '-'}</td>
+                  <td>{req.stage?.dateFin ? new Date(req.stage.dateFin).toLocaleDateString() : '-'}</td>
                   <td>{(() => {
                     if (req.stage?.dateDebut && req.stage?.dateFin) {
                       const debut = new Date(req.stage.dateDebut);
@@ -54,6 +59,7 @@ const StageRequestsList = () => {
                     return "-";
                   })()}</td>
                   <td>{getStatusBadge(req.status)}</td>
+                  <td>{req.commentaireEntreprise ? req.commentaireEntreprise : <span style={{color:'#bbb'}}>Aucun</span>}</td>
                 </tr>
               ))
             )}
