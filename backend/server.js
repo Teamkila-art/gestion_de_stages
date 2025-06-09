@@ -5,8 +5,16 @@ const db = require("./models");
 const app = express();
 
 // Configure CORS options
+const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
 const corsOptions = {
-  origin: "http://localhost:3001", // Frontend URL
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser requests
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 };
 
