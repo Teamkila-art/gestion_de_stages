@@ -1,0 +1,135 @@
+.wrapper {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.blueHeader {
+  background: #1877f2;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0.9rem 0;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+}
+
+.table th {
+  background: #f7fafd;
+  color: #222;
+  font-weight: 600;
+  padding: 0.85rem 0.7rem;
+  border-bottom: 2px solid #e5eaf1;
+  text-align: left;
+}
+
+.table td {
+  padding: 0.8rem 0.7rem;
+  border-bottom: 1px solid #f0f2f5;
+  background: #f7fafd;
+  vertical-align: top;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.proBtn {
+  background: #1877f2;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 0.32rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(24,119,242,0.10);
+  letter-spacing: 0.4px;
+  cursor: not-allowed;
+  opacity: 1;
+  transition: background 0.18s;
+  outline: none;
+}
+
+.textarea {
+  width: 100%;
+  min-width: 180px;
+  border-radius: 7px;
+  border: 1px solid #b4c9e7;
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+  background: #fff;
+  resize: vertical;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.saveBtn {
+  background: #fff;
+  color: #1877f2;
+  border: 1.5px solid #1877f2;
+  border-radius: 7px;
+  padding: 0.33rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 0.1rem;
+  transition: background 0.18s, color 0.18s;
+}
+.saveBtn:hover {
+  background: #e3f0ff;
+}
+
+.acceptBtn {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.4rem;
+  margin-bottom: 0.2rem;
+  transition: background 0.18s;
+}
+.acceptBtn:hover {
+  background: #169c43;
+}
+
+.rejectBtn {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.2rem;
+  transition: background 0.18s;
+}
+.rejectBtn:hover {
+  background: #b71c1c;
+}
+
+@media (max-width: 700px) {
+  .table th, .table td {
+    font-size: 0.97rem;
+    padding: 0.5rem 0.3rem;
+  }
+  .blueHeader {
+    font-size: 1.05rem;
+    padding: 0.65rem 0;
+  }
+}

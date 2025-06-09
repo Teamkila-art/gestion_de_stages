@@ -1,0 +1,217 @@
+:root {
+  --sidebar-bg: #13335b;
+  --sidebar-active: #284e7a;
+  --sidebar-text: #fff;
+  --sidebar-icon: #bfcbe2;
+  --main-bg: #eaf1fa;
+  --card-bg: #fff;
+  --title-text: #24324d;
+  --desc-text: #43516b;
+  --border-radius: 18px;
+  --shadow: 0 6px 24px rgba(44,62,80,0.10);
+  --orange: #f7923a;
+  --orange-hover: #e87b0e;
+  --blue: #377dce;
+  --blue-border: #377dce;
+  --blue-hover: #245c9a;
+  --pending: #eaf1fa;
+  --pending-text: #284e7a;
+  --accepted: #e6fbe7;
+  --accepted-text: #1a7f3c;
+  --rejected: #fdeaea;
+  --rejected-text: #c1121f;
+}
+
+.enterpriseLayout {
+  min-height: 100vh;
+  display: flex;
+  background: var(--main-bg);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.sidebar {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  width: 240px;
+  min-width: 180px;
+  padding: 2.5rem 1.2rem 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+.sidebarTitle {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+}
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.sidebarNavItem {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--sidebar-text);
+  font-size: 1.13rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  border: none;
+  background: none;
+}
+.sidebarNavItem.active, .sidebarNavItem:focus {
+  background: var(--sidebar-active);
+  color: #fff;
+}
+.sidebarNavItem svg {
+  color: var(--sidebar-icon);
+  font-size: 1.2rem;
+}
+
+.mainSection {
+  flex: 1;
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--title-text);
+  margin-bottom: 1.7rem;
+}
+
+.requestsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.requestCard {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.7rem 2.1rem 1.7rem 2.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.requestHeader {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--title-text);
+}
+.requestDesc {
+  color: var(--desc-text);
+  font-size: 1.07rem;
+  margin-bottom: 0.2rem;
+}
+.requestRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem;
+}
+.requestStatus {
+  padding: 0.35rem 1.15rem;
+  border-radius: 1.2rem;
+  font-size: 1.01rem;
+  font-weight: 600;
+  background: var(--pending);
+  color: var(--pending-text);
+  margin-right: 0.7rem;
+}
+.requestStatus.accepted {
+  background: var(--accepted);
+  color: var(--accepted-text);
+}
+.requestStatus.rejected {
+  background: var(--rejected);
+  color: var(--rejected-text);
+}
+.requestActions {
+  display: flex;
+  gap: 0.7rem;
+}
+.acceptBtn {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1.3rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.acceptBtn:hover, .acceptBtn:focus {
+  background: var(--orange-hover);
+}
+.rejectBtn {
+  background: #fff;
+  color: var(--blue);
+  border: 2px solid var(--blue-border);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1.3rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.rejectBtn:hover, .rejectBtn:focus {
+  background: var(--blue-hover);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .mainSection {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .sidebar {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    min-width: 120px;
+    width: 140px;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 600px) {
+  .enterpriseLayout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    box-shadow: none;
+  }
+  .sidebarTitle {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+  .mainSection {
+    padding: 0.7rem 0.3rem;
+    gap: 1.1rem;
+  }
+  .requestCard {
+    padding: 1rem 0.5rem;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+}

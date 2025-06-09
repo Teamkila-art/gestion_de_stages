@@ -1,0 +1,117 @@
+.authContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.form {
+  background: #fff;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.10), 0 1.5px 4px rgba(44, 62, 80, 0.08);
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #2d3a4a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.inputGroup label {
+  font-size: 1rem;
+  color: #2d3a4a;
+  font-weight: 500;
+  margin-bottom: 0.1rem;
+}
+.inputGroup input,
+.inputGroup textarea {
+  padding: 0.7rem 1rem;
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border-color 0.2s;
+}
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: #4f8cff;
+  outline: none;
+}
+
+.submitBtn {
+  background: linear-gradient(90deg, #4f8cff 0%, #3358d4 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 0;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.submitBtn:hover {
+  background: linear-gradient(90deg, #3358d4 0%, #4f8cff 100%);
+  box-shadow: 0 4px 16px rgba(79, 140, 255, 0.12);
+}
+
+.switchLink {
+  text-align: center;
+  margin-top: 0.7rem;
+  color: #64748b;
+  font-size: 0.98rem;
+}
+.switchLink a {
+  color: #3358d4;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 0.2rem;
+}
+.switchLink a:hover {
+  text-decoration: underline;
+}
+
+.toggleGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.toggleBtn {
+  background: #f1f5f9;
+  color: #3358d4;
+  border: 1.5px solid #e0e6ed;
+  border-radius: 7px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.toggleBtn:hover {
+  background: #e0e6ed;
+  border-color: #4f8cff;
+}
+.activeToggle {
+  background: linear-gradient(90deg, #4f8cff 0%, #3358d4 100%);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+}

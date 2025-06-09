@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+:root {
+  --sidebar-bg: #13335b;
+  --sidebar-active: #284e7a;
+  --sidebar-text: #fff;
+  --sidebar-icon: #bfcbe2;
+  --main-bg: #eaf1fa;
+  --card-bg: #fff;
+  --title-text: #24324d;
+  --desc-text: #43516b;
+  --border-radius: 18px;
+  --shadow: 0 6px 24px rgba(44,62,80,0.10);
+  --orange: #f7923a;
+  --orange-hover: #e87b0e;
+  --blue: #377dce;
+  --blue-border: #377dce;
+  --blue-hover: #245c9a;
+  --pending: #eaf1fa;
+  --pending-text: #284e7a;
+  --accepted: #e6fbe7;
+  --accepted-text: #1a7f3c;
+  --rejected: #fdeaea;
+  --rejected-text: #c1121f;
+}
+
+body {
+  background: var(--main-bg);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: var(--title-text);
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

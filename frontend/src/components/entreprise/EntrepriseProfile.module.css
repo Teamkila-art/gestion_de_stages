@@ -1,0 +1,89 @@
+.profileCard {
+  max-width: 700px;
+  min-width: 350px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(30, 64, 175, 0.13), 0 2px 8px #1976d2;
+  padding: 3.5rem 3.5rem 2.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  background: #e3f0fd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #1976d2;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+}
+
+.profileTitle {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.profileField {
+  width: 100%;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profileLabel {
+  font-size: 0.98rem;
+  color: #888;
+  margin-bottom: 0.1rem;
+}
+
+.profileValue {
+  font-size: 1.11rem;
+  color: #222;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.profileSite {
+  color: #1976d2;
+  text-decoration: underline;
+  font-size: 1.08rem;
+}
+
+.profileDesc {
+  margin-top: 1.2rem;
+  font-size: 1.08rem;
+  color: #444;
+  background: #f6fafd;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logoutBtn {
+  margin-top: 2rem;
+  background: linear-gradient(90deg,#1976d2 60%,#1565c0 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 2.2rem;
+  font-size: 1.07rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.11);
+}
+.logoutBtn:hover {
+  background: linear-gradient(90deg,#1565c0 60%,#1976d2 100%);
+}

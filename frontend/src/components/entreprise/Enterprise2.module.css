@@ -1,0 +1,368 @@
+/* Modern responsive enterprise dashboard styles */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --success: #2ec4b6;
+  --success-hover: #21a99c;
+  --danger: #e63946;
+  --danger-hover: #c1121f;
+  --warning: #ff9f1c;
+  --info: #4cc9f0;
+  --white: #ffffff;
+  --light: #f8f9fa;
+  --gray: #e9ecef;
+  --dark: #212529;
+  --neutral: #6c757d;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --transition: all 0.2s ease-in-out;
+  --content-padding: 2rem;
+}
+
+/* Base styles */
+.dashboardContainer {
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+.header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  padding: 1.2rem 0;
+  box-shadow: var(--shadow);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.logoutButton {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.logoutButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main content */
+.mainContent {
+  flex-grow: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem var(--content-padding);
+  width: 100%;
+}
+
+/* Tab styles */
+.tabContainer {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab, .activeTab {
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.tab {
+  background-color: var(--white);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab:hover {
+  background-color: var(--light);
+}
+
+.activeTab {
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+/* Card styles */
+.contentCard {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cardTitle {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Table styles */
+.tableContainer {
+  overflow-x: auto;
+  border-radius: var(--radius);
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  color: var(--primary);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr {
+  transition: var(--transition);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* Status badges */
+.statusPending, .statusAccepted, .statusRejected {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 120px;
+  font-size: 0.9rem;
+}
+
+.statusPending {
+  background-color: var(--gray);
+  color: var(--neutral);
+}
+
+.statusAccepted {
+  background-color: var(--success);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(46,196,182,0.13);
+}
+
+.statusRejected {
+  background-color: var(--danger);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(230,57,70,0.13);
+}
+
+/* Date display */
+.dateRange {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dateSeparator {
+  color: var(--neutral);
+  font-size: 0.9rem;
+}
+
+/* Comments */
+.commentText {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid #e9ecef;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 40px;
+  transition: var(--transition);
+}
+
+.commentText:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+/* Action buttons */
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.acceptButton, .rejectButton {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 120px;
+}
+
+.acceptButton {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.acceptButton:hover {
+  background-color: var(--success-hover);
+}
+
+.rejectButton {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+.rejectButton:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .mainContent {
+    padding: 1.5rem 1rem;
+  }
+  
+  .contentCard {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    display: block;
+  }
+  
+  .table thead {
+    display: none;
+  }
+  
+  .table tbody {
+    display: block;
+  }
+  
+  .table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f8f9fa;
+  }
+  
+  .table td:last-child {
+    border-bottom: none;
+  }
+  
+  .table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    color: var(--primary);
+  }
+  
+  .dateRange {
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .statusPending, .statusAccepted, .statusRejected {
+    min-width: unset;
+  }
+  
+  .actionButtons {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .acceptButton, .rejectButton {
+    flex: 1;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 576px) {
+  .header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .logoutButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+  
+  .table td {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.3rem;
+  }
+  
+  .dateRange {
+    justify-content: flex-start;
+  }
+  
+  .actionButtons {
+    width: 100%;
+  }
+}
